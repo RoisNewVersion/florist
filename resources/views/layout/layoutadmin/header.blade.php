@@ -7,15 +7,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gentallela Alela! | </title>
+    <title>IDA Florist | </title>
 
     <!-- Bootstrap -->
-    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href={!! asset("assetadmin/css/bootstrap.min.css") !!} rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-
+    <link href={!! asset("assetadmin/css/font-awesome.min.css") !!} rel="stylesheet">
+    <!-- dataTable -->
+    <link href={!! asset("assetadmin/css/dataTables.bootstrap.min.css") !!} rel="stylesheet">
+    <link href={!! asset("assetadmin/css/responsive.bootstrap.min.css") !!} rel="stylesheet">
+    <!-- datepicker -->
+    <link href={!! asset("assetadmin/css/datepicker.css") !!}  rel="stylesheet">
+    
     <!-- Custom Theme Style -->
-    <link href="css/custom.css" rel="stylesheet">
+    <link href={!! asset("assetadmin/css/custom.css") !!}  rel="stylesheet">
+
+    <style type="text/css" media="screen">
+      .modal-wide .modal-dialog{
+        width: 40%;
+      }
+      
+      .dropdown-menu{
+        z-index: 2000 !important;
+      }
+    </style>
 
     @yield('css')
   </head>
@@ -25,16 +40,14 @@
       <div class="main_container">
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
-            <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentellela Alela!</span></a>
-            </div>
+            
 
             <div class="clearfix"></div>
 
             <!-- menu profile quick info -->
             <div class="profile">
               <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                <img src={{ asset("assetadmin/images/img.jpg") }} alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>

@@ -10,16 +10,25 @@
     </div>
 
     <!-- jQuery -->
-    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <script src={!! asset("assetadmin/js/jquery.min.js") !!}></script>
     <!-- Bootstrap -->
-    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src={!! asset("assetadmin/js/bootstrap.min.js") !!}></script>
     <!-- FastClick -->
-    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+    <script src={!! asset("assetadmin/js/fastclick.js") !!}></script>
     <!-- NProgress -->
-    <script src="../vendors/nprogress/nprogress.js"></script>
-    
+    <script src={!! asset("assetadmin/js/nprogress.js") !!}></script>
+    <!-- dataTable js -->
+    <script src={!! asset("assetadmin/js/jquery.dataTables.min.js") !!}></script>
+    <script src={!! asset("assetadmin/js/dataTables.bootstrap.min.js") !!}></script>
+    <script src={!! asset("assetadmin/js/dataTables.responsive.min.js") !!}></script>
+    <script src={!! asset("assetadmin/js/responsive.bootstrap.js") !!}></script>
+    <!-- datepicker -->
+    <script src={!! asset("assetadmin/js/bootstrap-datepicker.js") !!}></script>
+    <!-- notify -->
+    <script src={!! asset("assetadmin/js/notify.min.js") !!}></script>
     <!-- Custom Theme Scripts -->
-    <script src="js/custom.js"></script>
+    <script src={!! asset("assetadmin/js/custom.js") !!}></script>
+
     @yield('js')
   </body>
 </html>
