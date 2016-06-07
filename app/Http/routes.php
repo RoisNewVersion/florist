@@ -20,9 +20,11 @@ Route::filter('csrf', function() {
 });
 /*protect from csrf*/
 
-Route::get('/', function () {
-	return view('user.homeuser');
-});
+// Route::get('/', function () {
+// 	return view('user.homeuser');
+// });
+
+Route::get('/', ['uses'=>'homeCtrl@homeuser', 'as'=>'homeuser']);
 
 Route::group(['middleware' => 'auth'], function() {
 

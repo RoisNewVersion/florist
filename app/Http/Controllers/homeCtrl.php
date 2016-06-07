@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Produk;
 
 class homeCtrl extends Controller
 {
@@ -83,5 +84,11 @@ class homeCtrl extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function homeuser()
+    {
+        $data = Produk::where('kategori_id', 9)->get();
+        return view('user.homeuser', compact('data'));
     }
 }
