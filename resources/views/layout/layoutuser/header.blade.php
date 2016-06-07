@@ -34,6 +34,9 @@
 
     <script src={!! asset("assetuser/js/respond.min.js") !!} ></script>
 
+    <!-- sweetalert -->
+    <link href={!! asset("assetuser/css/sweetalert.css") !!}  rel="stylesheet">
+
     <link rel="shortcut icon" href="favicon.png">
 
     @yield('css')
@@ -48,10 +51,20 @@
         <div class="container">
             <div class="col-md-12" data-animate="fadeInDown">
                 <ul class="menu">
-                    <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
-                    </li>
-                    <li><a href="register.html">Register</a>
-                    </li>
+                    @if(Auth::check())
+                        <li><a href="#">Profile</a>
+                        </li>
+                        <li><a href="register.html">Logout</a>
+                        </li>
+                    @else
+
+                        <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
+                        </li>
+                        <li><a href="register.html">Register</a>
+                        </li>
+                        <li><a href="{!! route('logout')!!}">Logout</a>
+                        </li>
+                    @endif
                 </ul>
             </div>
         </div>

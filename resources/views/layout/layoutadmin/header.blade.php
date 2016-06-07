@@ -18,6 +18,8 @@
     <link href={!! asset("assetadmin/css/responsive.bootstrap.min.css") !!} rel="stylesheet">
     <!-- datepicker -->
     <link href={!! asset("assetadmin/css/datepicker.css") !!}  rel="stylesheet">
+    <!-- sweetalert -->
+    <link href={!! asset("assetuser/css/sweetalert.css") !!}  rel="stylesheet">
     
     <!-- Custom Theme Style -->
     <link href={!! asset("assetadmin/css/custom.css") !!}  rel="stylesheet">

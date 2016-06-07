@@ -28,7 +28,10 @@
     <script src={!! asset("assetadmin/js/notify.min.js") !!}></script>
     <!-- Custom Theme Scripts -->
     <script src={!! asset("assetadmin/js/custom.js") !!}></script>
+    <script src={!! asset("assetuser/js/sweetalert.min.js") !!}></script>
 
+    @include('sweet::alert')
+    
     @yield('js')
   </body>
 </html>

@@ -25,6 +25,12 @@ Route::filter('csrf', function() {
 // });
 
 Route::get('/', ['uses'=>'homeCtrl@homeuser', 'as'=>'homeuser']);
+// utk login
+//auth
+Route::get('login', ['uses'=>'AuthCtrl@getLogin', 'as'=>'login']);
+Route::post('login', 'AuthCtrl@postLogin');
+Route::get('logout', ['uses'=>'AuthCtrl@getLogout', 'as'=>'logout']);
+
 
 Route::group(['middleware' => 'auth'], function() {
 
@@ -38,6 +44,10 @@ Route::group(['middleware' => 'auth'], function() {
 	    // utk customer
 		Route::resource('customer', 'customerCtrl');
 	});
+
+
+	/*======ini utk user =======*/
+
 
 });
 // Route::get('/superuser', function () {
