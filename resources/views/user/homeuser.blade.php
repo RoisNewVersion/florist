@@ -7,13 +7,13 @@
 
             <div class="container">
             <?php
-            if (Auth::check()) {
+            /*if (Auth::check()) {
                 echo Auth::user()->name;
                 echo "Wkwkwk";
             }else{
                 echo "hahaha";
                 print_r(Auth::user());
-            }
+            }*/
             ?>
             
                 <div class="col-md-12">

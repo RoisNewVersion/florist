@@ -30,6 +30,9 @@ Route::get('/', ['uses'=>'homeCtrl@homeuser', 'as'=>'homeuser']);
 Route::get('login', ['uses'=>'AuthCtrl@getLogin', 'as'=>'login']);
 Route::post('login', 'AuthCtrl@postLogin');
 Route::get('logout', ['uses'=>'AuthCtrl@getLogout', 'as'=>'logout']);
+// utk register
+Route::get('register', ['uses'=>'AuthCtrl@getRegister', 'as'=>'register']);
+Route::post('register', ['uses'=>'AuthCtrl@postRegister', 'as'=>'register']);
 
 
 Route::group(['middleware' => 'auth'], function() {

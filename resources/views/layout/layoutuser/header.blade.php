@@ -54,16 +54,16 @@
                     @if(Auth::check())
                         <li><a href="#">Profile</a>
                         </li>
-                        <li><a href="register.html">Logout</a>
+                        <li><a href="{!! route('logout')!!}">Logout</a>
                         </li>
                     @else
 
                         <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
                         </li>
-                        <li><a href="register.html">Register</a>
+                        <li><a href="{!! route('register')!!}">Register</a>
                         </li>
-                        <li><a href="{!! route('logout')!!}">Logout</a>
-                        </li>
+                        <!-- <li><a href="{!! route('logout')!!}">Logout</a>
+                        </li> -->
                     @endif
                 </ul>
             </div>
@@ -74,15 +74,16 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="Login">Customer login</h4>
+                        <h4 class="modal-title" id="Login">Login</h4>
                     </div>
                     <div class="modal-body">
-                        <form action="customer-orders.html" method="post">
+                        <form action="{{url('login')}}" method="post">
+                            {!! csrf_field() !!}
                             <div class="form-group">
-                                <input type="text" class="form-control" id="email-modal" placeholder="email">
+                                <input type="email" name="email" class="form-control" id="email-modal" placeholder="email">
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" id="password-modal" placeholder="password">
+                                <input type="password" class="form-control" name="password" id="password-modal" placeholder="password">
                             </div>
 
                             <p class="text-center">
@@ -92,7 +93,7 @@
                         </form>
 
                         <p class="text-center text-muted">Not registered yet?</p>
-                        <p class="text-center text-muted"><a href="register.html"><strong>Register now</strong></a></p>
+                        <p class="text-center text-muted"><a href="{!! route('register')!!}"><strong>Register now</strong></a></p>
 
                     </div>
                 </div>

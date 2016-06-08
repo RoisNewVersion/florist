@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Produk;
 
 class produkCtrl extends Controller
 {
@@ -16,7 +17,8 @@ class produkCtrl extends Controller
      */
     public function index()
     {
-        //
+        $produks = Produk::all();
+        return view('admin.produk.index', compact('produks'));
     }
 
     /**
@@ -26,7 +28,7 @@ class produkCtrl extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.produk.create');
     }
 
     /**

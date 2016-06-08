@@ -37,14 +37,14 @@ class AuthCtrl extends Controller
     	if (Auth::attempt($inputan))
     	{
     		// jika user biasa
-    		// if ($request->user()->user_level == '1') {
+    		if ($request->user()->user_level == '1') {
     			SweetAlert::success('Welcome Back '.Auth::user()->name, 'Selamat Datang')->autoclose(2000);
     			return redirect('/');//->intended('homeuser');
-    		// }else{
-    		// 	// jika user admin
-    		// 	SweetAlert::success('Welcome Back '.Auth::user()->name, 'Selamat Datang')->autoclose(2000);
-    		// 	return redirect('superuser');//->intended('/superuser');
-    		// }
+    		}else{
+    			// jika user admin
+    			SweetAlert::success('Welcome Back '.Auth::user()->name, 'Selamat Datang')->autoclose(2000);
+    			return redirect('superuser');//->intended('/superuser');
+    		}
     		
     	}else{
     		Session::flash('pesan', 'E-mail atau password salah, coba lagi!');
@@ -55,6 +55,7 @@ class AuthCtrl extends Controller
 
     public function getLogout()
     {
+        SweetAlert::message('Pesan', 'Sukses Logout');
     	Auth::logout();
         return redirect('/');
     }
