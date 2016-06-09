@@ -67,4 +67,40 @@ class AuthCtrl extends Controller
             'password'=>'required'
         ];
     }
+
+    // register user
+    public function getRegister()
+    {
+        return view('pages.register');
+    }
+
+    // post register
+    public function postRegister(Request $request)
+    {
+        $validator = Validator::make($request->all(), User::$rules);
+        // /cek validasi
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }
+
+        $dataInput = ['user_level'=> 1,
+                    'name'=>ucwords($request->input('name')),
+                    'email'=>$request->input('email'),
+                    'password'=>bcrypt($request->input('password')),
+                    'kota'=>$request->input('kota'),
+                    'alamat'=>ucwords($request->input('alamat')),
+                    'no_telp'=>$request->input('no_telp')
+                    ];
+        // masukan ke db
+        $cek = User::create($dataInput);
+
+        if ($cek) {
+            SweetAlert::success('Berhasil, anda bisa login.', 'Selamat Datang')->autoclose(3000);
+            return redirect('/');//->intended('homeuser');
+        }else{
+                // jika user admin
+            SweetAlert::error('Gagal register', 'Selamat Datang')->autoclose(3000);
+            return redirect('/');//->intended('/superuser');
+        }
+    }
 }

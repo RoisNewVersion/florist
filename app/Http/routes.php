@@ -15,8 +15,9 @@ Route::when('*', 'csrf', array('post', 'put', 'delete'));
 
 Route::filter('csrf', function() {
 	$token = Request::ajax() ? Request::header('X-CSRF-Token') : Input::get('_token');
-	if (Session::token() != $token)
+	if (Session::token() != $token){
 		throw new Illuminate\Session\TokenMismatchException;
+	}
 });
 /*protect from csrf*/
 

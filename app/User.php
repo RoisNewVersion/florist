@@ -28,7 +28,7 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected $fillable = ['user_level', 'name', 'email', 'password', 'alamat', 'no_telp'];
+    protected $fillable = ['user_level', 'name', 'email', 'password', 'kota', 'alamat', 'no_telp'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -36,4 +36,15 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    // rules
+    public static $rules = [
+                            'name'=>'required',
+                            'email'=>'required',
+                            'password'=>'required',
+                            'kota'=>'required',
+                            'alamat'=>'required',
+                            'no_telp'=>'required'
+                            ];
+
 }
