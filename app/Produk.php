@@ -14,7 +14,7 @@ class Produk extends Model
     						'jenis_bunga'=>'required',
     						'kode_bunga'=>'required',
     						'harga_bunga'=>'required|integer',
-    						'img'=>'required',
+    						'gambar'=>'required',
     						'kategori_id'=>'required|integer'
     					];
 

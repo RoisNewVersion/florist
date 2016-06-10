@@ -51,7 +51,8 @@
 									<td>
 										<a href="{{route('superuser.produk.edit', ['produk'=>$produk->id_produk])}}" class="btn btn-info btn-xs">Edit</a>
 
-										<form style="display: inline;" action="{{url('superuser/produk/'.$produk->id_produk)}}" method="delete" accept-charset="utf-8">
+										<form onclick="return confirm('Yakin hapus?')" style="display: inline;" action="{{url('superuser/produk/'.$produk->id_produk)}}" method="post" accept-charset="utf-8">
+										{!! Form::hidden('_method', 'delete') !!}
 										{!!csrf_field()!!}
 										<input type="submit" class="btn btn-danger btn-xs" name="delete" value="Delete">
 										</form>
