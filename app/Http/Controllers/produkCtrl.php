@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Produk;
+use App\Kategori;
+use UxWeb\SweetAlert\SweetAlert;
 
 class produkCtrl extends Controller
 {
@@ -28,7 +30,8 @@ class produkCtrl extends Controller
      */
     public function create()
     {
-        return view('admin.produk.create');
+        $kat = Kategori::lists('nama_kategori', 'id_kategori');
+        return view('admin.produk.create', ['kategori'=>$kat]);
     }
 
     /**
@@ -39,7 +42,36 @@ class produkCtrl extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // cek gambar ada atau tdk
+        if ($request->file('gambar')) {
+            $gambar = $request->file('gambar');
+            $ext = $gambar->getClientOriginalExtension();
+            $nama = time().'.'.$ext;
+            $upload = $gambar->move(base_path().'/public/assetuser/img/',$nama);
+            // cek berhasil upload
+            if ($upload) {
+                $dataInput = [
+                    'nama_produk'=>ucwords($request->input('nama_produk')),
+                    'jenis_bunga'=>ucwords($request->input('jenis_bunga')),
+                    'kode_bunga'=>strtoupper($request->input('kode_bunga')),
+                    'harga_bunga'=>$request->input('harga_bunga'),
+                    'img'=> $nama,
+                    'kategori_id'=>$request->input('kategori')
+                ];
+                // save ke db
+                $cek = Produk::create($dataInput);
+                if ($cek) {
+                    SweetAlert::success('Berhasil tambah produk', 'Selamat')->autoclose(3000);
+                    return redirect('superuser/produk');//->intended('homeuser');
+                }else{
+                        // jika user admin
+                    SweetAlert::error('Gagal tambah produk', 'Pesan')->autoclose(3000);
+                    return redirect()->back();//->intended('/superuser');
+                }
+            }
+        }
+
+        
     }
 
     /**
