@@ -12,7 +12,15 @@
     <meta name="keywords" content="">
 
     <title>
-        Obaju : e-commerce template
+        @if(Request::segment(1))
+            IDA FLORIST - {{ucwords(Request::segment(1))}}
+        @else
+            {{'IDA FLORIST'}}
+        @endif
+        @if(Request::segment(2))
+             - {{ucwords(Request::segment(2))}}
+
+        @endif
     </title>
 
     <meta name="keywords" content="">

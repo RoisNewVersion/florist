@@ -7,7 +7,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>IDA Florist | </title>
+    <title>
+      @if(Request::segment(1))
+            IDA FLORIST - {{ucwords(Request::segment(1))}}
+      @else
+          {{'IDA FLORIST'}}
+      @endif
+      @if(Request::segment(2))
+           - {{ucwords(Request::segment(2))}}
+      @endif
+      @if(Request::segment(3))
+           - {{ucwords(Request::segment(3))}}
+      @endif
+    </title>
 
     <!-- Bootstrap -->
     <link href={!! asset("assetadmin/css/bootstrap.min.css") !!} rel="stylesheet">

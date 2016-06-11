@@ -3,16 +3,6 @@
    <div id="footer" data-animate="fadeInUp">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-sm-6">
-                <h4>Pages</h4>
-
-
-                <h4>User section</h4>
-
-                <hr class="hidden-md hidden-lg hidden-sm">
-
-            </div>
-            <!-- /.col-md-3 -->
 
             <div class="col-md-6 col-sm-6">
                 <ul> 
@@ -24,7 +14,6 @@
 
             </div>
 
-            <hr>
 
             <h4>Follow me</h4>
 
@@ -54,7 +43,7 @@
             <div class="container">
                 <div class="col-md-6">
                     <p class="pull-left">© 2016 IDA FLORIST-SEMARANG</p>
-
+                    
                 </div>
                 <div class="col-md-6">
                 <p class="pull-right">by <a href="">EKA BELLA SATYA</a> 

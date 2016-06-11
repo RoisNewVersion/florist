@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\User;
+use Validator;
+use UxWeb\SweetAlert\SweetAlert;
 
 class customerCtrl extends Controller
 {
@@ -16,7 +19,8 @@ class customerCtrl extends Controller
      */
     public function index()
     {
-        //
+        $customer = User::where('user_level', '1')->get();
+        return view('admin.customer.index', compact('customer'));
     }
 
     /**
@@ -26,7 +30,7 @@ class customerCtrl extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.customer.create');
     }
 
     /**
@@ -37,7 +41,31 @@ class customerCtrl extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), User::$rules);
+        // /cek validasi
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }
+
+        $dataInput = ['user_level'=> 1,
+                    'name'=>ucwords($request->input('name')),
+                    'email'=>$request->input('email'),
+                    'password'=>bcrypt($request->input('password')),
+                    'kota'=>$request->input('kota'),
+                    'alamat'=>ucwords($request->input('alamat')),
+                    'no_telp'=>$request->input('no_telp')
+                    ];
+        // masukan ke db
+        $cek = User::create($dataInput);
+
+        if ($cek) {
+            SweetAlert::success('Berhasil tambah customer.', 'Selamat Datang')->autoclose(3000);
+            return redirect()->route("superuser.customer.index");
+        }else{
+                // jika user admin
+            SweetAlert::error('Gagal tambah customer', 'Selamat Datang')->autoclose(3000);
+            return redirect()->back()->withInput();//->intended('/superuser');
+        }
     }
 
     /**
@@ -82,6 +110,14 @@ class customerCtrl extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cek = User::destroy($id);
+
+            if ($cek) {
+                SweetAlert::success('Data berhasil terhapus', 'Selamat')->autoclose(2000);
+            } else {
+                SweetAlert::error('Data gagal dihapus', 'Pesan')->autoclose(2000);
+            }
+
+            return redirect()->route('superuser.customer.index');
     }
 }
