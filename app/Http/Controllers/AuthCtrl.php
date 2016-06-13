@@ -103,4 +103,12 @@ class AuthCtrl extends Controller
             return redirect('/');//->intended('/superuser');
         }
     }
+
+    // show profil customer
+    public function show($id)
+    {
+        $profil = User::findOrFail($id);
+
+        return view('user.profil', ['profil'=>$profil]);
+    }
 }

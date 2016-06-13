@@ -33,8 +33,8 @@
 									</div>
 									
 									<div class="form-group">
-									  <label for="jenis_bunga">Jenis bunga</label>
-									  {!!Form::input('text','jenis_bunga', old('jenis_bunga'), ['id'=>'jenis_bunga', 'class'=>'form-control'])!!}
+									  <label for="keterangan_bunga">Keterangan bunga</label>
+									  {!!Form::input('text','keterangan_bunga', old('keterangan_bunga'), ['id'=>'keterangan_bunga', 'class'=>'form-control'])!!}
 									  {!!$errors->first('nama_produk', '<p class="help-block">:message</p>')!!}
 									</div>
 

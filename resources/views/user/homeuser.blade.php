@@ -92,18 +92,18 @@
                                 <div class="flip-container">
                                     <div class="flipper">
                                         <div class="front">
-                                            <a href="detail.html">
+                                            <a href="{{route('produk', ['id'=>$bunga->id_produk])}}">
                                                 <img src={{ asset('assetuser/img/'.$bunga->img)}} alt="" class="img-responsive">
                                             </a>
                                         </div>
                                         <div class="back">
-                                            <a href="detail.html">
+                                            <a href="{{route('produk', ['id'=>$bunga->id_produk])}}">
                                                 <img src={{ asset('assetuser/img/'.$bunga->img) }} alt="" class="img-responsive">
                                             </a>
                                         </div>
                                     </div>
                                 </div>
-                                <a href="detail.html" class="invisible">
+                                <a href="{{route('produk', ['id'=>$bunga->id_produk])}}" class="invisible">
                                     <img src={{ asset('assetuser/img/'.$bunga->img)}} alt="" class="img-responsive">
                                 </a>
                                 <div class="text">

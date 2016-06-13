@@ -29,7 +29,7 @@
 								<tr>
 									<th>No</th>
 									<th>Nama</th>
-									<th>Jenis</th>
+									<th>Ket. bunga</th>
 									<th>Kode</th>
 									<th>Harga</th>
 									<th>Kategori</th>
@@ -43,7 +43,7 @@
 								<tr>
 									<td>{{$no}}</td>
 									<td>{{ucwords($produk->nama_produk)}}</td>
-									<td>{{strtoupper($produk->jenis_bunga)}}</td>
+									<td>{{strtoupper($produk->keterangan_bunga)}}</td>
 									<td>{{$produk->kode_bunga}}</td>
 									<td>{{'Rp '.number_format($produk->harga_bunga)}}</td>
 									<td>{{ucwords($produk->kategori->nama_kategori)}}</td>

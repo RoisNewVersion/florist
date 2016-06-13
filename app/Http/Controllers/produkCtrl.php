@@ -53,7 +53,7 @@ class produkCtrl extends Controller
 			if ($upload) {
 				$dataInput = [
 					'nama_produk'=>ucwords($request->input('nama_produk')),
-					'jenis_bunga'=>ucwords($request->input('jenis_bunga')),
+					'keterangan_bunga'=>ucwords($request->input('keterangan_bunga')),
 					'kode_bunga'=>strtoupper($request->input('kode_bunga')),
 					'harga_bunga'=>$request->input('harga_bunga'),
 					'img'=> $nama,
@@ -83,7 +83,8 @@ class produkCtrl extends Controller
 	 */
 	public function show($id)
 	{
-		
+		$produk = Produk::find($id);
+		return view('user.produk', ['produks'=>$produk]);
 		
 	}
 
@@ -128,7 +129,7 @@ class produkCtrl extends Controller
 				if ($upload) {
 					$dataInput = [
 						'nama_produk'=>ucwords($request->input('nama_produk')),
-						'jenis_bunga'=>ucwords($request->input('jenis_bunga')),
+						'keterangan_bunga'=>ucwords($request->input('keterangan_bunga')),
 						'kode_bunga'=>strtoupper($request->input('kode_bunga')),
 						'harga_bunga'=>$request->input('harga_bunga'),
 						'img'=> $nama,
@@ -149,7 +150,7 @@ class produkCtrl extends Controller
 		}else{
 			$dataInput = [
 			'nama_produk'=>ucwords($request->input('nama_produk')),
-			'jenis_bunga'=>ucwords($request->input('jenis_bunga')),
+			'keterangan_bunga'=>ucwords($request->input('keterangan_bunga')),
 			'kode_bunga'=>strtoupper($request->input('kode_bunga')),
 			'harga_bunga'=>$request->input('harga_bunga'),
 			// 'img'=> $nama,
@@ -189,5 +190,15 @@ class produkCtrl extends Controller
 	        return redirect()->route('superuser.produk.index');
 		}
 		
+	}
+
+	// kategori produk
+	public function kategori($id)
+	{
+		// $kat = Produk::find($id)->kategori;
+		$kat = Produk::where('kategori_id', $id);
+		echo "<pre>";
+		print_r($kat);
+		echo "</pre>";
 	}
 }

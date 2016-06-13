@@ -11,7 +11,7 @@ class Produk extends Model
 
     public static $rules = [
     						'nama_produk'=>'required',
-    						'jenis_bunga'=>'required',
+    						'keterangan_bunga'=>'required',
     						'kode_bunga'=>'required',
     						'harga_bunga'=>'required|integer',
     						'gambar'=>'required',
@@ -20,7 +20,7 @@ class Produk extends Model
 
     protected $fillable = [
     						'nama_produk',
-    						'jenis_bunga',
+    						'keterangan_bunga',
     						'kode_bunga',
     						'harga_bunga',
     						'img',

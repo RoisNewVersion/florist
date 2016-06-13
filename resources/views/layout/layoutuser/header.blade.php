@@ -60,7 +60,7 @@
             <div class="col-md-12" data-animate="fadeInDown">
                 <ul class="menu">
                     @if(Auth::check())
-                        <li><a href="#">Profile</a>
+                        <li><a href="{!! route('profil', ['id'=>Auth::user()->id_user])!!}">Profile</a>
                         </li>
                         <li><a href="{!! route('logout')!!}">Logout</a>
                         </li>

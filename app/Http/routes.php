@@ -34,7 +34,10 @@ Route::get('logout', ['uses'=>'AuthCtrl@getLogout', 'as'=>'logout']);
 // utk register
 Route::get('register', ['uses'=>'AuthCtrl@getRegister', 'as'=>'register']);
 Route::post('register', ['uses'=>'AuthCtrl@postRegister', 'as'=>'register']);
-
+// tampil produk
+Route::get('produk/{id}', ['uses'=>'produkCtrl@show', 'as'=>'produk']);
+// tampil produk berdasarkan kategori
+Route::get('kategori/{id}', ['uses'=>'produkCtrl@kategori', 'as'=>'kategori']);
 
 Route::group(['middleware' => 'auth'], function() {
 
@@ -51,7 +54,8 @@ Route::group(['middleware' => 'auth'], function() {
 
 
 	/*======ini utk user =======*/
-
+	// profil customer
+	Route::get('profil/{id}', ['uses'=>'AuthCtrl@show', 'as'=>'profil']);
 
 });
 // Route::get('/superuser', function () {
