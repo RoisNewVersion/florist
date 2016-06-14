@@ -26,8 +26,8 @@
 					
 					<h3>Produk detail</h3>
 					<h4>Nama produk : {{$produks->nama_produk}}</h4>
-					<p>Kode : {{$produks->kode_bunga}}</p>
-					<h4>Harga : {{$produks->harga_bunga}}</h4>
+					<p>Kode : <b>{{$produks->kode_bunga}}</b></p>
+					<h4>Harga : Rp {{number_format($produks->harga_bunga)}}</h4>
 					
 
 					<blockquote>

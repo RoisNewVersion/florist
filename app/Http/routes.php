@@ -56,7 +56,9 @@ Route::group(['middleware' => 'auth'], function() {
 	/*======ini utk user =======*/
 	// profil customer
 	Route::get('profil/{id}', ['uses'=>'AuthCtrl@show', 'as'=>'profil']);
-
+	// tampil produk berdasarkan kategori
+	Route::get('order', ['uses'=>'pemesananCtrl@getOrder', 'as'=>'order']);
+	Route::post('order', ['uses'=>'pemesananCtrl@postOrder', 'as'=>'order']);
 });
 // Route::get('/superuser', function () {
 // 	return view('layout.layoutadmin.contoh');

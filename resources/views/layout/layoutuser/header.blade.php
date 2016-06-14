@@ -57,7 +57,11 @@
  ________________________________________________________ -->
     <div id="top">
         <div class="container">
-            <div class="col-md-12" data-animate="fadeInDown">
+            <div class="col-md-6 offer" data-animate="fadeInDown">
+                <a href="#" class="btn btn-success btn-xs" data-animate-hover="shake">IDA FLORIST</a>
+            </div>
+
+            <div class="col-md-6" data-animate="fadeInDown">
                 <ul class="menu">
                     @if(Auth::check())
                         <li><a href="{!! route('profil', ['id'=>Auth::user()->id_user])!!}">Profile</a>

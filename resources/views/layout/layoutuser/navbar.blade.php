@@ -19,31 +19,31 @@
                                         <div class="col-sm-3">
                                             <h5>Hand Bouquet</h5>
                                             <ul>
-                                                <li><a href="bungasegar.html">BUNGA SEGAR</a>
+                                                <li><a href="{{url('kategori/1')}}">BUNGA SEGAR</a>
                                                 </li>
-                                                <li><a href="bungakain.html">BUNGA KAIN</a>
+                                                <li><a href="{{url('kategori/2')}}">BUNGA KAIN</a>
                                                 </li>
                                             </ul>
                                         </div>
                                         <div class="col-sm-3">
                                             <h5>Bouquet</h5>
                                             <ul>
-                                                <li><a href="bungarangkaian.html">BUNGA RANGKIAN</a>
+                                                <li><a href="{{url('kategori/3')}}">BUNGA RANGKIAN</a>
                                                 </li>
-                                                <li><a href="bungastanding.html">BUNGA STANDING</a>
+                                                <li><a href="{{url('kategori/4')}}">BUNGA STANDING</a>
                                                 </li>
                                             </ul>
                                         </div>
                                         <div class="col-sm-3">
                                             <h5>Karangan Papan Bunga</h5>
                                             <ul>
-                                                <li><a href="birthday.html">BIRTHDAY</a>
+                                                <li><a href="{{url('kategori/5')}}">BIRTHDAY</a>
                                                 </li>
-                                                <li><a href="congratulation.html">CONGRATULATIONS</a>
+                                                <li><a href="{{url('kategori/6')}}">CONGRATULATIONS</a>
                                                 </li>
-                                                <li><a href="dukacita.html">DUKA CITA</a>
+                                                <li><a href="{{url('kategori/7')}}">DUKA CITA</a>
                                                 </li>
-                                                <li><a href="wedding.html">WEDDING</a>
+                                                <li><a href="{{url('kategori/8')}}">WEDDING</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -52,7 +52,7 @@
                         </ul>
                     </li>
 
-                    <li class=""><a href="order.html">Order</a>
+                    <li class=""><a href="{{url('order')}}">Order</a>
                     
                 </ul>
 

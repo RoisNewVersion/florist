@@ -196,9 +196,7 @@ class produkCtrl extends Controller
 	public function kategori($id)
 	{
 		// $kat = Produk::find($id)->kategori;
-		$kat = Produk::where('kategori_id', $id);
-		echo "<pre>";
-		print_r($kat);
-		echo "</pre>";
+		$kat = Produk::where('kategori_id', $id)->get();
+		return view('user.kategori', ['kategori'=>$kat]);
 	}
 }

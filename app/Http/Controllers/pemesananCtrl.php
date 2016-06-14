@@ -84,4 +84,15 @@ class pemesananCtrl extends Controller
     {
         //
     }
+
+    // order user
+    public function getOrder()
+    {
+        return view('user.order');
+    }
+    // user post order
+    public function postOrder(Request $request)
+    {
+        
+    }
 }
