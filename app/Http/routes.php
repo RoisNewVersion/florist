@@ -59,6 +59,10 @@ Route::group(['middleware' => 'auth'], function() {
 	// tampil produk berdasarkan kategori
 	Route::get('order', ['uses'=>'pemesananCtrl@getOrder', 'as'=>'order']);
 	Route::post('order', ['uses'=>'pemesananCtrl@postOrder', 'as'=>'order']);
+	// pesan berdasarkan id produk
+	// Route::get('order/{id}', ['uses'=>'pemesananCtrl@getOrderById', 'as'=>'orderbyid']);
+	// ajax kode produk
+	Route::get('ajax/getkodebg', ['uses'=>'pemesananCtrl@getKodeBg', 'as'=>'getkodebg']);
 });
 // Route::get('/superuser', function () {
 // 	return view('layout.layoutadmin.contoh');

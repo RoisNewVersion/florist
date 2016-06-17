@@ -44,6 +44,8 @@
 
     <!-- sweetalert -->
     <link href={!! asset("assetuser/css/sweetalert.css") !!}  rel="stylesheet">
+    <!-- datepicker -->
+    <link href={!! asset("assetuser/css/datepicker.css") !!}  rel="stylesheet">
 
     <link rel="shortcut icon" href="favicon.png">
 

@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Produk;
+use App\Pemesanan;
+use Validator;
+use Auth;
+use UxWeb\SweetAlert\SweetAlert;
 
 class pemesananCtrl extends Controller
 {
@@ -88,11 +93,51 @@ class pemesananCtrl extends Controller
     // order user
     public function getOrder()
     {
-        return view('user.order');
+        $list = Produk::select('kode_bunga', 'id_produk')->get();
+        // print_r($list);
+        // exit();
+        return view('user.order', ['list_bunga'=>$list]);
     }
     // user post order
     public function postOrder(Request $request)
     {
-        
+        $validator = Validator::make($request->all(), Pemesanan::$rules);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }
+
+        $dataInput = [ 
+                'produk_id'=>$request->input('kode_bg') ,
+                'user_id'=>Auth::user()->id_user ,
+                'keterangan'=>$request->input('ket_bg') ,
+                'alamat_kirim'=>$request->input('alamat_kirim') ,
+                'tgl_pengiriman'=>$request->input('tgl_kirim') ,
+            ];
+        // simpan ke db
+        $cek = Pemesanan::create($dataInput);
+
+        if ($cek) {
+            SweetAlert::success('Berhasil memesan, silahkan tunggu sms dari admin.', 'Selamat')->autoclose(3000);
+            return redirect()->route("order");
+        }else{
+                // jika user admin
+            SweetAlert::error('Gagal pesan bungan', 'Maaf')->autoclose(3000);
+            return redirect()->back()->withInput();
+        }
+    }
+    // orderbyID
+    public function getOrderById($id)
+    {
+        $pro = Produk::find($id);
+        return view('user.order_by_id', ['produk', $pro]);
+    }
+
+    // ajax
+    public function getKodeBg(Request $request)
+    {
+        $kode = $request->input('id_produk');
+        $pro = Produk::find($kode);
+        return response()->json($pro);
+        // echo $kode;
     }
 }

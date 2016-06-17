@@ -79,6 +79,7 @@
     <script src={!! asset("assetuser/js/owl.carousel.min.js" ) !!}></script>
     <script src={!! asset("assetuser/js/front.js") !!}></script>
     <script src={!! asset("assetuser/js/sweetalert.min.js") !!}></script>
+    <script src={!! asset("assetuser/js/bootstrap-datepicker.js") !!}></script>
 
     @include('sweet::alert')
     
