@@ -39,8 +39,8 @@ Route::get('produk/{id}', ['uses'=>'produkCtrl@show', 'as'=>'produk']);
 // tampil produk berdasarkan kategori
 Route::get('kategori/{id}', ['uses'=>'produkCtrl@kategori', 'as'=>'kategori']);
 
+// gruop
 Route::group(['middleware' => 'auth'], function() {
-
 	/*=========== url ini utk admin ==============*/
 	Route::group(['prefix' => 'superuser'], function() {
 		Route::get('/', ['uses'=>'homeCtrl@index', 'as'=>'home']);
@@ -50,6 +50,8 @@ Route::group(['middleware' => 'auth'], function() {
 		Route::resource('pemesanan', 'pemesananCtrl');
 	    // utk customer
 		Route::resource('customer', 'customerCtrl');
+		// konfirmasi pesanan
+		Route::get('konfirmasi/{id}', ['uses'=>'pemesananCtrl@konfirmasi', 'as'=>'konfirmasi']);
 	});
 
 

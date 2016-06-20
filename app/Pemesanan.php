@@ -23,6 +23,18 @@ class Pemesanan extends Model
     						'keterangan',
     						'alamat_kirim',
     						'no_telp_penerima',
-    						'tgl_penerima'
+    						'tgl_pengiriman',
+                            'status_konfirm'
     					];
+
+    // relasi ke produk
+    public function produk()
+    {
+        return $this->belongsTo('App\Produk', 'produk_id', 'id_produk');
+    }
+    // relasi ke user
+    public function user()
+    {
+        return $this->belongsTo('App\User', 'user_id', 'id_user');
+    }
 }

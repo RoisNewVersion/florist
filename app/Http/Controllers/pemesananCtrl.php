@@ -21,7 +21,8 @@ class pemesananCtrl extends Controller
      */
     public function index()
     {
-        //
+        $pem = Pemesanan::all();
+        return view('admin.pemesanan.pemesanan', ['pemesanan'=>$pem]);
     }
 
     /**
@@ -111,7 +112,9 @@ class pemesananCtrl extends Controller
                 'user_id'=>Auth::user()->id_user ,
                 'keterangan'=>$request->input('ket_bg') ,
                 'alamat_kirim'=>$request->input('alamat_kirim') ,
+                'no_telp_penerima'=>$request->input('no_telp_pen') ,
                 'tgl_pengiriman'=>$request->input('tgl_kirim') ,
+                'status_konfirm'=>'N',
             ];
         // simpan ke db
         $cek = Pemesanan::create($dataInput);
@@ -139,5 +142,21 @@ class pemesananCtrl extends Controller
         $pro = Produk::find($kode);
         return response()->json($pro);
         // echo $kode;
+    }
+
+    // konfirmasi
+    public function konfirmasi($id)
+    {
+        $pem = Pemesanan::findOrFail($id);
+        $cek = $pem->update(['status_konfirm'=>'Y']);
+
+        if ($cek) {
+            SweetAlert::success('Berhasil konfirmasi.', 'Selamat')->autoclose(3000);
+            return redirect()->route("superuser.pemesanan.index");
+        }else{
+                // jika user admin
+            SweetAlert::error('Gagal konfirmasi', 'Maaf')->autoclose(3000);
+            return redirect()->back()->withInput();
+        }
     }
 }
