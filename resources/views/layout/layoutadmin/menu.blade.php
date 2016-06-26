@@ -18,6 +18,10 @@
                     
                   </li>
 
+                  <li><a href="{!! route("getcetak") !!}"><i class="fa fa-print"></i> Cetak Data Pemesanan </span></a>
+                    
+                  </li>
+
                 </ul>
               </div>
             </div>

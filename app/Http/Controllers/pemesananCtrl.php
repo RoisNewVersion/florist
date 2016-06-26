@@ -11,6 +11,7 @@ use App\Pemesanan;
 use Validator;
 use Auth;
 use UxWeb\SweetAlert\SweetAlert;
+use DB;
 
 class pemesananCtrl extends Controller
 {
@@ -158,5 +159,31 @@ class pemesananCtrl extends Controller
             SweetAlert::error('Gagal konfirmasi', 'Maaf')->autoclose(3000);
             return redirect()->back()->withInput();
         }
+    }
+
+    // get cetak
+    public function getCetak()
+    {
+        return view('admin.pemesanan.get_cetak');
+    }
+
+    // proses cetak
+    public function prosesCetak(Request $request)
+    {
+        $awal = $request->input('tgl_awal');
+        $akhir = $request->input('tgl_akhir');
+        $konfirm = $request->input('konfirm');
+
+        $pro = DB::table('datapemesanan')
+            ->join('users', 'datapemesanan.user_id', '=', 'users.id_user')
+            ->join('produk', 'datapemesanan.produk_id', '=', 'produk.id_produk')
+            ->whereBetween('datapemesanan.created_at', [$awal, $akhir])
+            ->where('datapemesanan.status_konfirm', '=', $konfirm)
+            ->select('datapemesanan.*', 'users.name', 'produk.nama_produk', 'produk.harga_bunga')
+            ->get();
+        // echo "<pre>";
+        // print_r($pro);
+        // echo "</pre>";
+        return view('admin.pemesanan.post_cetak', ['datacetak'=>$pro]);
     }
 }

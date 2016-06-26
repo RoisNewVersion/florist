@@ -29,6 +29,7 @@
 									<th>No</th>
 									<th>Nama Customer</th>
 									<th>Nama Produk</th>
+									<th>Harga</th>
 									<th>Keterangan</th>
 									<th>Almt Kirim</th>
 									<th>No telp Penerima</th>
@@ -44,6 +45,7 @@
 									<td>{{$no}}</td>
 									<td>{{$pesan->user->name}}</td>
 									<td>{{$pesan->produk->nama_produk}}</td>
+									<td>Rp {{number_format($pesan->produk->harga_bunga)}}</td>
 									<td>{{$pesan->keterangan}}</td>
 									<td>{{$pesan->alamat_kirim}}</td>
 									<td>{{$pesan->no_telp_penerima}}</td>

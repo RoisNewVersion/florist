@@ -52,6 +52,10 @@ Route::group(['middleware' => 'auth'], function() {
 		Route::resource('customer', 'customerCtrl');
 		// konfirmasi pesanan
 		Route::get('konfirmasi/{id}', ['uses'=>'pemesananCtrl@konfirmasi', 'as'=>'konfirmasi']);
+		// tampil halaman cetak
+		Route::get('getcetak', ['uses'=>'pemesananCtrl@getCetak', 'as'=>'getcetak']); 
+		// tampil halaman post cetak
+		Route::get('prosescetak', ['uses'=>'pemesananCtrl@prosesCetak', 'as'=>'prosescetak']); 
 	});
 
 
