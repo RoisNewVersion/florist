@@ -10,7 +10,7 @@
                     
                   </li>
 
-                  <li><a href="{!! route("superuser.customer.index") !!}"><i class="fa fa-group"></i> Costomer </span></a>
+                  <!-- <li><a href="{!! route("superuser.customer.index") !!}"><i class="fa fa-group"></i> Costomer </span></a> -->
                     
                   </li>
 
