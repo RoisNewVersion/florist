@@ -43,21 +43,21 @@
                     <div class="same-height-row">
                         <div class="col-sm-4">
                             <div class="box same-height clickable">
-                                <h3><a href="#">BOUQUET</a></h3>
+                                <h3><a href="{{url('kategori/1')}}">BOUQUET</a></h3>
                                 <p>Karangan bunga untuk hiasan meja (bunga stand)</p>
                             </div>
                         </div>
 
                         <div class="col-sm-4">
                             <div class="box same-height clickable">
-                                <h3><a href="#">HAND BOUQUET</a></h3>
+                                <h3><a href="{{url('kategori/2')}}">HAND BOUQUET</a></h3>
                                 <p>Rangakaian dengan menggabungkan beberapa bunga yang di bungkus dengan tisu dan plastik.</p>
                             </div>
                         </div>
 
                         <div class="col-sm-4">
                             <div class="box same-height clickable">
-                                <h3><a href="#">KARANGAN BUNGA</a></h3>
+                                <h3><a href="{{url('kategori/3')}}">KARANGAN BUNGA</a></h3>
                                 <p>Papan bunga untuk ucapan selamat maupun duka cita.</p>
                             </div>
                         </div>

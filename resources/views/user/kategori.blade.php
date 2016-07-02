@@ -24,7 +24,7 @@
 							</a>
 							<div class="text">
 								<h3><a href="{{url('produk/'.$kat->id_produk)}}"></a></h3>
-								<p class="price">{{number_format($kat->harga_bunga)}}</p>
+								<p class="price">Rp {{number_format($kat->harga_bunga)}}</p>
 								<p class="buttons">
 									<a href="{{url('produk/'.$kat->id_produk)}}" class="btn btn-default">View detail</a>
 									<!-- <a href="{{url('order/'.$kat->id_produk)}}" class="btn btn-primary"> <i class="fa fa-shopping-cart"></i> View detail</a> -->
