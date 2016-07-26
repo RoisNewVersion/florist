@@ -69,6 +69,8 @@ Route::group(['middleware' => 'auth'], function() {
 	// Route::get('order/{id}', ['uses'=>'pemesananCtrl@getOrderById', 'as'=>'orderbyid']);
 	// ajax kode produk
 	Route::get('ajax/getkodebg', ['uses'=>'pemesananCtrl@getKodeBg', 'as'=>'getkodebg']);
+	// belanjaan ku
+	Route::get('history_belanja', ['uses'=>'pemesananCtrl@history', 'as'=>'history_belanja']);
 });
 // Route::get('/superuser', function () {
 // 	return view('layout.layoutadmin.contoh');

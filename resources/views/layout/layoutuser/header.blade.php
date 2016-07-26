@@ -64,6 +64,8 @@
             <div class="col-md-6" data-animate="fadeInDown">
                 <ul class="menu">
                     @if(Auth::check())
+                        <li><a href="{!! route('history_belanja')!!}">Belanjaan ku</a>
+                        </li>
                         <li><a href="{!! route('profil', ['id'=>Auth::user()->id_user])!!}">Profile</a>
                         </li>
                         <li><a href="{!! route('logout')!!}">Logout</a>

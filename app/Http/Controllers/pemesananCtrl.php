@@ -186,4 +186,14 @@ class pemesananCtrl extends Controller
         // echo "</pre>";
         return view('admin.pemesanan.post_cetak', ['datacetak'=>$pro]);
     }
+
+    // history belanja
+    public function history()
+    {
+        // print_r(Auth::user()->id);
+        // die();
+        $id = Auth::user()->id_user;
+        $his = Pemesanan::where('user_id', '=', $id)->get();
+        return view('user.history', ['history'=>$his]);
+    }
 }
