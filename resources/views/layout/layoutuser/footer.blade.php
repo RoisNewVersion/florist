@@ -7,12 +7,12 @@
             <div class="col-md-4 col-sm-4">
                 <ul> 
                     <h4>IDA FLORIST</h4>
-                    <li>Jl.Dr Sutomo-Kalicari</li>
+                    <li>Jl.Dr Sutomo-Kalisari</li>
                     <li>Semarang-Jawa Tengah</li>
                     <li>No.Hp: 085100235098</li>
                 </ul>
             </div>
-            <div class="col-md-4 col-sm-4">
+{{--             <div class="col-md-4 col-sm-4">
                 <ul> 
                     <h4>IDA FLORIST</h4>
                     <li>No REK BNI xxx xxx xxx xxx an Bella bello</li>
@@ -20,7 +20,7 @@
                     <li>No.Hp: 085100235098</li>
                 </ul>
             </div>
-
+ --}}
 
             <h4>Follow me</h4>
 
